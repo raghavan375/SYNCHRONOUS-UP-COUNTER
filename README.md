@@ -27,7 +27,6 @@ The next flip-flop need only “recognize” that the first flip-flop’s Q outp
 However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
 
 **Procedure**
-/* write all the steps invloved */
 1.Initialize the shift register to a known state (e.g., all zeros).
 
 2.Input a bit serially into the shift register.
@@ -37,30 +36,32 @@ However, the remaining flip-flops should be made ready to toggle only when all l
 4.Output the shifted bit from the last stage of the register.
 
 5.Repeat steps 2-4 for each bit you want to input and shift.
+
 **PROGRAM**
+```
+module exp11(out,clk,rstn);
+ input clk, rstn;
+output reg [3:0] out; 
+always @ (posedge clk) begin  
+    if (! rstn)  
+      out <= 0;  
+    else  
+      out <= out + 1;  
+  end  
+endmodule
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
-
-Developed by:THIRAVIA RAJA RAGHAVAN G RegisterNumber:212224050055
-*/
-~~~
-  module exp11(out,clk,rstn);
-  input clk,rstn;
-  output reg [3:0]out;
-  always @ (posedge clk)
-  begin
-     if(!rstn)
-       out<=0;
-     else 
-       out <= out+1;
-  end
-~~~
-
+```
 **RTL LOGIC UP COUNTER**
-![exp11](https://github.com/user-attachments/assets/5df5d3a3-4772-4911-ab6b-ea0d8b23ed15)
+![image](https://github.com/user-attachments/assets/8951d10f-c2ce-4535-8739-9bd6716ed954)
+
+
 **TIMING DIAGRAM FOR IP COUNTER**
-![Screenshot (119)](https://github.com/user-attachments/assets/0e0148a4-153b-4e15-be31-2a746e34b120)
+![image](https://github.com/user-attachments/assets/a1990a2f-1e5f-4c88-99e6-9a19d0a90625)
+
+
 **TRUTH TABLE**
-![TRUTHTABLE](https://github.com/user-attachments/assets/5c4c2324-f582-4ddb-b4a6-3bb935a18727)
+![image](https://github.com/user-attachments/assets/4409da28-2aad-4a52-ae5c-c2d7c6d18632)
+
 **RESULTS**
-Hence a 4 bit synchronous up counter is implemented correctlyHence a 4 bit synchronous up counter is implemented correctly
+
+Hence a 4 bit synchronous up counter is implemented correctly and program code is successfully executed.
